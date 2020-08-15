@@ -1,5 +1,5 @@
 {
-  "name": "bin-search",
+  "name": "binary-find",
   "version": "1.0.0",
   "description": "a js small binary search function independent of container",
   "main": "index.js",
