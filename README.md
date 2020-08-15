@@ -23,17 +23,21 @@ npm i binary-find
 - `start` *integer* Start index for search (inclusive)
 - `end` *integer* End index for search (inclusive)
 - `valueToFind` *any* Value to look for
-- `readFunction` *Function* Function to read from your sorted list. Below argument is passed when called
+- `readFunction` *Function* to read from your sorted list. Below argument is passed when called
 	- `index` *integer* Index of item to be read (starting from 0)
 	- This function should return the item at `index`
-- `compareFunction` *Function* Function to compare your list items. Below arguments are passed when called.
+- `compareFunction` *Function* to compare your list items. Below arguments are passed when called.
 	- `firstEl` *any* First value to compare. This value has been read using `readFunction`
 	- `secondEl` *any* Second value to compare. This value has been read using `readFunction`
 	- This function should return one of below values:
 		- `-1 or less` If `firstEl` is less than `secondEl`
-		- `0` If `firstEl` is same as `secondEl`
+		- `0` If `firstEl` and `secondEl` are equal
 		- `1 or higher` If `firstEl` is greater than `secondEl`
 	- **Note:** This function is same as function used for sorting your list
+- `binaryFind()` returns below values
+	- `0 or any positive integer` If the `valueToFind` is found, the return value would be index of it in the list
+	- `negative integer` If the `valueToFind` is not found, the return value indicates the position in the list that the value should be inserted
+	- `null` If the `valueToFind` was not found and it should be inserted at index `0` in the list
 
 ### Simple Usage
 ```javascript
