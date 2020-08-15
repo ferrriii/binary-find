@@ -1,7 +1,7 @@
 {
   "name": "binary-find",
   "version": "1.0.0",
-  "description": "a js small binary search function independent of container",
+  "description": "a small binary search function independent of container",
   "main": "index.js",
   "scripts": {
     "test": "node test.js"
