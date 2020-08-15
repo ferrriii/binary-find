@@ -93,11 +93,11 @@ function insert(list, value, foundIndex) {
   if (foundIndex === null) return list.splice(0, 0, value)
   // item already exist, ignore
   if (foundIndex >= 0) return
-  let absP = Math.abs(foundIndex)
+  let absIndex = Math.abs(foundIndex)
   // item is greater than any item in the list, add to end
-  if (absP > list.length - 1) return list.push(value)
+  if (absIndex > list.length - 1) return list.push(value)
   // item should be inserted at |foundIndex|
-  list.splice(absP, 0, value)
+  list.splice(absIndex, 0, value)
 }
 
 async function testBinaryInsertionSort() {
@@ -140,6 +140,27 @@ async function testMaxIntegerBoundary() {
   }
 }
 
+async function testString() {
+  var list = ['a', 'ab', 'abc', 'abcd', 'b']
+  var comparator = (a, b) => a.localeCompare(b)
+  var reader = index => list[index]
+
+  for (let i = 0; i < list.length; i++) {
+    let foundIndex = await binarySearch(0, list.length - 1, list[i], reader, comparator);
+    check(foundIndex === i, `Found '${list[i]}' in ${list.length} strings`)
+  }
+
+  let foundIndex
+  foundIndex = await binarySearch(0, list.length - 1, 'abcde', reader, comparator);
+  check(foundIndex === -4, `Found missing abcde`)
+
+  foundIndex = await binarySearch(0, list.length - 1, '1', reader, comparator);
+  check(foundIndex === null, `Found missing '1'`)
+
+  foundIndex = await binarySearch(0, list.length - 1, 'c', reader, comparator);
+  check(foundIndex === -5, `Found missing 'c'`)
+}
+
 async function searchTime(count) {
   var list = [...Array(count).keys()]
   var comparator = (a, b) => a - b
@@ -178,6 +199,8 @@ async function test() {
   await testBinaryInsertionSort()
   console.log('Testing with maximum array length')
   await testMaxIntegerBoundary()
+  console.log('Testing string list')
+  await testString()
   console.log('Testing performance')
   await testPerformance()
 }
