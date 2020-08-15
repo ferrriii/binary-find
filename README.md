@@ -26,6 +26,7 @@ npm i binary-find
 - `readFunction` *Function* to read from your sorted list. Below argument is passed when called
 	- `index` *integer* Index of item to be read (starting from 0)
 	- This function should return the item at `index`
+	- This function can be `async`
 - `compareFunction` *Function* to compare your list items. Below arguments are passed when called.
 	- `firstEl` *any* First value to compare. This value has been read using `readFunction`
 	- `secondEl` *any* Second value to compare. This value has been read using `readFunction`
