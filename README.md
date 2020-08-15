@@ -19,6 +19,40 @@ npm i binary-find
 ```
 
 ## Usage
+```
+const binaryFind = require('./index.js')
+
+async function find() {
+  // list of sorted items
+  const list = [0,1,2,3,4,5]
+  // function for comparing list items (same as what you use for sorting)
+  const comparator = (a, b) => a - b
+  // function for reading list item at index
+  const reader = index => list[index]
+
+  let foundIndex
+
+  foundIndex = await binarySearch(0, list.length-1, 3, reader, comparator);
+  console.log(foundIndex) // output: 3
+
+  foundIndex = await binarySearch(0, list.length-1, 0, reader, comparator);
+  console.log(foundIndex) // output: 0
+
+  foundIndex = await binarySearch(0, list.length-1, 3.5, reader, comparator);
+  console.log(foundIndex) // output: -4
+
+  foundIndex = await binarySearch(0, list.length-1, 100, reader, comparator);
+  console.log(foundIndex) // output: -6
+
+  foundIndex = await binarySearch(0, list.length-1, 0.5, reader, comparator);
+  console.log(foundIndex) // output: -1
+
+  foundIndex = await binarySearch(0, list.length-1, -1, reader, comparator);
+  console.log(foundIndex) // output: null
+}
+
+find()
+```
 
 ## Test
 ```
