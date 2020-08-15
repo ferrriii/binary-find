@@ -11,5 +11,13 @@
     "search"
   ],
   "author": "ferrriii",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ferrriii/binary-find.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ferrriii/binary-find/issues"
+  },
+  "homepage": "https://github.com/ferrriii/binary-find#readme"
 }
