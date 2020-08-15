@@ -19,6 +19,23 @@ npm i binary-find
 ```
 
 ## Usage
+`binaryFind(start, end, valueToFind, readFunction, compareFunction)`
+- `start` <integer> start index for search (inclusive)
+- `end` <integer> end index for search (inclusive)
+- `valueToFind` <any> value to look for
+- `readFunction` <Function> function to read from your sorted list. Below argument is passed when called
+	- `index` <integer> index of item to be read (starting from 0)
+	- should return the item at `index`
+- `compareFunction` <Function> function to compare your list items. Below arguments are passed when called.
+	- `firstEl` <any> first value to compare. This value has been read using `readFunction`
+	- `secondEl` <any> second value to compare. This value has been read using `readFunction`
+	- This function should return one of below values:
+		- `-1 or less` if `firstEl` is less than `secondEl`
+		- `0` if `firstEl` is same as `secondEl`
+		- `1 or higher` if `firstEl` is greater than `secondEl`
+	- **Note:** This function is same as function used for sorting your list
+
+### Simple Usage
 ```javascript
 const binaryFind = require('binary-find')
 
@@ -32,22 +49,22 @@ async function find() {
 
   let foundIndex
 
-  foundIndex = await binarySearch(0, list.length-1, 3, reader, comparator);
+  foundIndex = await binaryFind(0, list.length-1, 3, reader, comparator);
   console.log(foundIndex) // output: 3
 
-  foundIndex = await binarySearch(0, list.length-1, 0, reader, comparator);
+  foundIndex = await binaryFind(0, list.length-1, 0, reader, comparator);
   console.log(foundIndex) // output: 0
 
-  foundIndex = await binarySearch(0, list.length-1, 3.5, reader, comparator);
+  foundIndex = await binaryFind(0, list.length-1, 3.5, reader, comparator);
   console.log(foundIndex) // output: -4
 
-  foundIndex = await binarySearch(0, list.length-1, 100, reader, comparator);
+  foundIndex = await binaryFind(0, list.length-1, 100, reader, comparator);
   console.log(foundIndex) // output: -6
 
-  foundIndex = await binarySearch(0, list.length-1, 0.5, reader, comparator);
+  foundIndex = await binaryFind(0, list.length-1, 0.5, reader, comparator);
   console.log(foundIndex) // output: -1
 
-  foundIndex = await binarySearch(0, list.length-1, -1, reader, comparator);
+  foundIndex = await binaryFind(0, list.length-1, -1, reader, comparator);
   console.log(foundIndex) // output: null
 }
 
