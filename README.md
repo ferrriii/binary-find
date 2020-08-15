@@ -134,10 +134,10 @@ Following is test results from github actions with below setup:
  - Nodejs: `v14.7.0`
  - npm: `6.14.7`
 ```
-Checking every item in a list of         100 items: 0ms per item
-Checking every item in a list of       1,000 items: 0.004ms per item
-Checking every item in a list of      10,000 items: 0.0019ms per item
-Checking every item in a list of   1,000,000 items: 0.002144ms per item
-Checking every item in a list of  10,000,000 items: 0.0024571ms per item
-Checking every item in a list of 100,000,000 items: 0.00281341ms per item
+Checking every item in a list of         100 items: 0.01ms per item
+Checking every item in a list of       1,000 items: 0.005ms per item
+Checking every item in a list of      10,000 items: 0.002ms per item
+Checking every item in a list of   1,000,000 items: 0.001905ms per item
+Checking every item in a list of  10,000,000 items: 0.0022008ms per item
+Checking every item in a list of 100,000,000 items: 0.00246802ms per item
 ```
