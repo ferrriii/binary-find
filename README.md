@@ -7,7 +7,7 @@ a js small binary search function independent of container
 	- Can work with up to `Number.MAX_SAFE_INTEGER` items
 - Any container can be used (using a reader function)
 - Any data structure can be used (using a comparator function)
-- Support for asyncronous (suitable for working with I/O)
+- Support for asyncronous reads (suitable for working with I/O like files, etc.)
 - Suitable for binary insertion sort
 - Tested (Nodejs 10.x, 12.x, 14.x)
 
@@ -24,7 +24,7 @@ npm run test
 ```
 
 ## Performance
-Test result from github actions with below setup:
+Following is test results from github actions with below setup:
  - Operating System: `Ubuntu  18.04.4  LTS`
  - Nodejs: `v14.7.0`
  - npm: `6.14.7`

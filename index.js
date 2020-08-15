@@ -1,33 +1,44 @@
-async function binarySearch(startOffest, endOffset, value, readFunc, compareFunc) {
+async function binarySearch(startOffset, endOffset, value, readFunc, compareFunc) {
   // https://en.wikipedia.org/wiki/Binary_search_algorithm
-  const initialStartOffset = startOffest
-  if (endOffset < startOffest) return null
+  const initialStartOffset = startOffset
+  if (endOffset < startOffset) return null
   const initialEndOffset = endOffset
-  while (startOffest !== endOffset) {
+  while (startOffset !== endOffset) {
     // reference: https://ai.googleblog.com/2006/06/extra-extra-read-all-about-it-nearly.html
-    var mid = startOffest + Math.ceil((endOffset - startOffest) / 2) // (startOffest+endOffset) >>> 1 // Math.ceil((startOffest+endOffset)/2)
-    //mid++
+    var mid = startOffset + Math.ceil((endOffset - startOffset) / 2)
     const valueAtOffset = await readFunc(mid)
     let cmp = compareFunc(valueAtOffset, value)
     if (cmp > 0) {
       endOffset = mid - 1
     } else if (cmp < 0) {
-      startOffest = mid
+      startOffset = mid
     } else {
       return mid
     }
   }
-  if (startOffest === initialStartOffset) {
-    const valueAtOffset = await readFunc(startOffest)
+
+  // handle the exception
+  if (startOffset === initialStartOffset) {
+    const valueAtOffset = await readFunc(startOffset)
     const cmp = compareFunc(valueAtOffset, value)
-    if (cmp === 0)
-      return startOffest
-    else if (cmp < 0)
+    if (cmp === 0) {
+      // search matched the first item
+      return startOffset
+    }
+    else if (cmp < 0) {
+      // item is greater that first item
+      // item doesn't exist but be inserted after the first item
       return -1
-    else
+    }
+    else {
+      // item is less than first item
       return null
+    }
   }
-  return (startOffest + 1) * -1
+
+  // couldn't find the item
+  // return the index where it should be inserted
+  return (startOffset + 1) * -1
 }
 
 module.exports = binarySearch
