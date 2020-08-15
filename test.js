@@ -71,7 +71,7 @@ async function limitedRangeSearch(start, end) {
   check(foundIndex === list.indexOf(list[start]), `Found ${list[start]} at ${list.indexOf(start)} in range(${start},${end}) in ${list.length} items: ${foundIndex}`)
 
   foundIndex = await binarySearch(start, end, list[end + 1] || 100, reader, comparator);
-  check(foundIndex == -1 * (end + 1), `Found ${list[end + 1] || 100} in range(${start},${end}) in ${list.length} items`)
+  check(foundIndex === -1 * (end + 1), `Found ${list[end + 1] || 100} in range(${start},${end}) in ${list.length} items`)
 
   foundIndex = await binarySearch(start, end, start - 1, reader, comparator);
   check(foundIndex === null, `Found ${start - 1} in range(${start},${end}) in ${list.length} items`)
@@ -136,7 +136,7 @@ async function testMaxIntegerBoundary() {
 
   for (let i = list.length - count; i < list.length; i++) {
     let foundIndex = await binarySearch(list.length - count, list.length - 1, list[i], reader, comparator);
-    check(foundIndex == i, `Found at index ${i} in ${N} items`)
+    check(foundIndex === i, `Found at index ${i} in ${N} items`)
   }
 }
 
