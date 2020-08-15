@@ -9,8 +9,8 @@ a small binary search function independent of container in js
 	- Can work with up to `Number.MAX_SAFE_INTEGER` items
 - Any container can be used (using a reader function)
 - Any data structure can be used (using a comparator function)
-- Support for asyncronous reads (suitable for working with I/O like files, etc.)
-- Suitable for binary insertion sort
+- Support for asyncronous reads (suitable for working with I/O like files, network resources, etc.)
+- Can be used for binary insertion sort
 - Tested (Nodejs 10.x, 12.x, 14.x)
 
 ## Install
@@ -20,9 +20,9 @@ npm i binary-find
 
 ## Usage
 `binaryFind(start, end, valueToFind, readFunction, compareFunction)`
-- `start` *integer* Start index for search (inclusive)
-- `end` *integer* End index for search (inclusive)
-- `valueToFind` *any* Value to look for
+- `start` *integer* Start index of your list for search (inclusive)
+- `end` *integer* End index of your list for search (inclusive)
+- `valueToFind` *any* Value to look for in your list
 - `readFunction` *Function* to read from your sorted list. Below argument is passed when called
 	- `index` *integer* Index of item to be read (starting from 0)
 	- This function should return the item at `index`
