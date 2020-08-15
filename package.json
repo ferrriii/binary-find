@@ -1,0 +1,15 @@
+{
+  "name": "bin-search",
+  "version": "1.0.0",
+  "description": "a js small binary search function independent of container",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "binary",
+    "search"
+  ],
+  "author": "ferrriii",
+  "license": "MIT"
+}
