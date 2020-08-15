@@ -162,12 +162,13 @@ async function testString() {
 }
 
 async function searchTime(count) {
-  var list = [...Array(count).keys()]
-  var comparator = (a, b) => a - b
-  var reader = index => list[index]
+  const list = [...Array(count).keys()]
+  const comparator = (a, b) => a - b
+  const reader = index => list[index]
+  const end = list.length - 1
   let startTime = Date.now()
   for (let i = 0; i < count; i++) {
-    await binarySearch(0, list.length - 1, i, reader, comparator);
+    await binarySearch(0, end, i, reader, comparator);
   }
   let endTime = Date.now()
   return (endTime - startTime) / count
@@ -180,7 +181,6 @@ async function testPerformance() {
   console.log(`Checking every item in a list of   1,000,000 items: ${await searchTime(1000000)}ms per item`)
   console.log(`Checking every item in a list of  10,000,000 items: ${await searchTime(10000000)}ms per item`)
   console.log(`Checking every item in a list of 100,000,000 items: ${await searchTime(100000000)}ms per item`)
-  //console.log(`Checking every item in a list of 200,000,000 items: ${await searchTime(500000000)}ms per item`)
 }
 
 async function test() {
