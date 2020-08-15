@@ -19,8 +19,8 @@ npm i binary-find
 ```
 
 ## Usage
-```
-const binaryFind = require('./index.js')
+```javascript
+const binaryFind = require('binary-find')
 
 async function find() {
   // list of sorted items
