@@ -20,19 +20,19 @@ npm i binary-find
 
 ## Usage
 `binaryFind(start, end, valueToFind, readFunction, compareFunction)`
-- `start` <integer> start index for search (inclusive)
-- `end` <integer> end index for search (inclusive)
-- `valueToFind` <any> value to look for
-- `readFunction` <Function> function to read from your sorted list. Below argument is passed when called
-	- `index` <integer> index of item to be read (starting from 0)
-	- should return the item at `index`
-- `compareFunction` <Function> function to compare your list items. Below arguments are passed when called.
-	- `firstEl` <any> first value to compare. This value has been read using `readFunction`
-	- `secondEl` <any> second value to compare. This value has been read using `readFunction`
+- `start` *integer* Start index for search (inclusive)
+- `end` *integer* End index for search (inclusive)
+- `valueToFind` *any* Value to look for
+- `readFunction` *Function* Function to read from your sorted list. Below argument is passed when called
+	- `index` *integer* Index of item to be read (starting from 0)
+	- This function should return the item at `index`
+- `compareFunction` *Function* Function to compare your list items. Below arguments are passed when called.
+	- `firstEl` *any* First value to compare. This value has been read using `readFunction`
+	- `secondEl` *any* Second value to compare. This value has been read using `readFunction`
 	- This function should return one of below values:
-		- `-1 or less` if `firstEl` is less than `secondEl`
-		- `0` if `firstEl` is same as `secondEl`
-		- `1 or higher` if `firstEl` is greater than `secondEl`
+		- `-1 or less` If `firstEl` is less than `secondEl`
+		- `0` If `firstEl` is same as `secondEl`
+		- `1 or higher` If `firstEl` is greater than `secondEl`
 	- **Note:** This function is same as function used for sorting your list
 
 ### Simple Usage
