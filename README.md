@@ -34,7 +34,7 @@ npm i binary-find
 		- `0` If `firstEl` and `secondEl` are equal
 		- `1 or higher` If `firstEl` is greater than `secondEl`
 	- **Note:** This function is same as function used for sorting your list
-- `binaryFind()` returns below values
+- `binaryFind()` returns *Promise* to be resolved with below values
 	- `0 or any positive integer` If the `valueToFind` is found, the return value would be index of it in the list
 	- `negative integer` If the `valueToFind` is not found, the `Math.abs(return value)` indicates the position in the list that the value should be inserted (offset starting at 0)
 	- `null` If the `valueToFind` was not found and it should be inserted at index `0` in the list
