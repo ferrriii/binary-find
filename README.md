@@ -3,7 +3,7 @@ a js small binary search function independent of container
 
 ## Features
 - Safe gaurded against integer overflow
-	- tested with `2e32-1` items (maximum items in JS)
+	- tested with 2e<sup>32</sup>-1 items (maximum items in JS)
 	- can work with `Number.MAX_SAFE_INTEGER` items
 - Any container can be used (using reader function)
 - Any data structure can be used (using a comparator function)
