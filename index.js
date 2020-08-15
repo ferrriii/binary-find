@@ -5,8 +5,8 @@ async function binarySearch(startOffset, endOffset, value, readFunc, compareFunc
   const initialEndOffset = endOffset
   while (startOffset !== endOffset) {
     // reference: https://ai.googleblog.com/2006/06/extra-extra-read-all-about-it-nearly.html
-    var mid = startOffset + Math.ceil((endOffset - startOffset) / 2)
-    const valueAtOffset = await readFunc(mid)
+    let mid = startOffset + Math.ceil((endOffset - startOffset) / 2)
+    let valueAtOffset = await readFunc(mid)
     let cmp = compareFunc(valueAtOffset, value)
     if (cmp > 0) {
       endOffset = mid - 1
@@ -19,8 +19,8 @@ async function binarySearch(startOffset, endOffset, value, readFunc, compareFunc
 
   // handle the exception
   if (startOffset === initialStartOffset) {
-    const valueAtOffset = await readFunc(startOffset)
-    const cmp = compareFunc(valueAtOffset, value)
+    let valueAtOffset = await readFunc(startOffset)
+    let cmp = compareFunc(valueAtOffset, value)
     if (cmp === 0) {
       // search matched the first item
       return startOffset
