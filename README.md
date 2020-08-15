@@ -76,6 +76,53 @@ async function find() {
 find()
 ```
 
+### Binary Insert Sort
+```javascript
+const binaryFind = require('binary-find')
+
+function insert(list, value, foundIndex) {
+  // insert value in the list based on foundIndex which is result of binaryFind()
+  // insert as first element
+  if (foundIndex === null) return list.splice(0, 0, value)
+  // item already exist, ignore
+  if (foundIndex >= 0) return
+  let absIndex = Math.abs(foundIndex)
+  // item is greater than any item in the list, add to end
+  if (absIndex > list.length - 1) return list.push(value)
+  // item should be inserted at |foundIndex|
+  list.splice(absIndex, 0, value)
+}
+
+async function binaryInsertionSort() {
+  // add random numbers to the list in the sorted index
+  list = []
+  var comparator = (a, b) => a - b
+  var reader = index => list[index]
+
+  for (let i = 0; i < 10; i++) {
+    let val
+    // find unique random value
+    do {
+      val = Math.floor(Math.random() * 100)
+    } while (list.indexOf(val) >= 0)
+
+    let p = await binaryFind(0, list.length - 1, val, reader, comparator);
+    insert(list, val, p)
+  }
+
+  console.log(list)
+  // output:
+  /*
+  [
+    30, 43, 48, 64, 65,
+    69, 79, 86, 92, 93
+  ]
+  */
+}
+
+binaryInsertionSort()
+```
+
 ## Test
 ```
 npm run test
