@@ -1,7 +1,7 @@
 # binary-find
 <img alt="downloads" src="https://img.shields.io/npm/dt/binary-find?style=flat-square"> <img alt="version" src="https://img.shields.io/npm/v/binary-find?style=flat-square"> <img alt="issues" src="https://img.shields.io/github/issues/ferrriii/binary-find?style=flat-square"> <img alt="package size" src="https://img.shields.io/bundlephobia/minzip/binary-find?style=flat-square"> <img alt="forks" src="https://img.shields.io/github/forks/ferrriii/binary-find?style=flat-square"> <img alt="stars" src="https://img.shields.io/github/stars/ferrriii/binary-find?style=flat-square"> <img alt="license" src="https://img.shields.io/github/license/ferrriii/binary-find?style=flat-square"> <img alt="programming language" src="https://img.shields.io/github/languages/top/ferrriii/binary-find?style=flat-square"> <img alt="test status" src="https://img.shields.io/github/workflow/status/ferrriii/binary-find/test?label=test">
 
-a js small binary search function independent of container
+a small binary search function independent of container in js 
 
 ## Features
 - Safe gaurded against integer overflow
