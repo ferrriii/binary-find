@@ -5,7 +5,7 @@ a small binary search function independent of container in js
 
 ## Features
 - Safe guarded against integer overflow
-	- Tested with 2e<sup>32</sup>-1 items (maximum items in JS array)
+	- Tested with 2<sup>32</sup>-1 items (maximum items in JS array)
 	- Can work with up to `Number.MAX_SAFE_INTEGER` items
 - Any container can be used (using a reader function)
 - Any data structure can be used (using a comparator function)
